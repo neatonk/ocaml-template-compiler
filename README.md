@@ -1,4 +1,4 @@
-# OCaml Template Compiler
+# tpl - The Template Compiler (tm)
 
 TODO
 
