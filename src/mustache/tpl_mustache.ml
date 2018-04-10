@@ -13,5 +13,7 @@ let%expect_test "roundtrip" =
   |> of_string |> to_string
   |> print_endline;
   [%expect_exact {|
-Hello {{name}}!Hello{{name}}!
+Hello {{name}}!
+Hello
+{{name}}!
 |}]

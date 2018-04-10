@@ -10,8 +10,8 @@ type state_t =
 
 }
 
-let text = [^ '{' '\n']*
-let newline = ('\n' | "\r\n")
+let text = [^ '{' '\r' '\n']*
+let newline = ('\r' | '\n' | "\r\n")
 let key = ['a'-'z' 'A'-'Z' '0'-'9' '_' '-']+
 let key_sep = ['.']
 
@@ -22,12 +22,12 @@ rule tag state = parse
                TAG_CLOSE (lexeme lexbuf) }
 
 and content state = parse
-  | text    { TEXT (lexeme lexbuf) }
-  | newline { new_line lexbuf;
-              content state lexbuf }
-  | "{{"    { state := Tag;
-              TAG_OPEN (lexeme lexbuf) }
-  | eof     { EOF }
+  | text newline { new_line lexbuf;
+                   TEXT (lexeme lexbuf) }
+  | text         { TEXT (lexeme lexbuf) }
+  | "{{"         { state := Tag;
+                   TAG_OPEN (lexeme lexbuf) }
+  | eof          { EOF }
 
 {
 

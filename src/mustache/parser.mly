@@ -21,7 +21,7 @@ tag:
   | k = delimited(TAG_OPEN, tag_key, TAG_CLOSE) { Variable k }
 
 mustache:
-  | s = TEXT { Text s }
+  | x = TEXT { Text x }
   | t = tag { t }
 
 parse:
