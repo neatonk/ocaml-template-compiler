@@ -1,0 +1,15 @@
+{{! This is a single-line simple comment }}
+{{!
+
+        This is a multi-line
+        comment :p
+
+}}
+Hello {{name}}!
+Hello
+{{name}}!
+This is not a {bug} :)
+My items:
+ {{# items}}- {{.}}{{/items}}
+ {{^items }}(EMPTY){{/items}}
+{{> myPartial}}

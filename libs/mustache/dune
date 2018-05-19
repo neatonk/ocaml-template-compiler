@@ -1,0 +1,13 @@
+(library
+ (name tpl_mustache)
+ (public_name tpl.mustache)
+ (synopsis "Mustache support for tpl - the template compiler (tm)")
+ (libraries menhirLib tpl_core)
+ (inline_tests (deps test.mustache))
+ (preprocess (pps ppx_expect)))
+
+(ocamllex lexer)
+
+(menhir
+ (flags (:standard -v))
+ (modules parser))

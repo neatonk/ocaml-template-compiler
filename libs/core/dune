@@ -1,0 +1,7 @@
+(library
+ (name tpl_core)
+ (public_name tpl.core)
+ (synopsis "Core lib for tpl - the template compiler (tm)")
+ (libraries ezjsonm ppx_deriving.show ppx_sexp_conv)
+ (preprocess (pps ppx_expect ppx_deriving.show ppx_sexp_conv))
+ (inline_tests))
